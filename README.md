@@ -1,2 +1,1 @@
-# hocvue
-vue_html
+# Learn VUE
