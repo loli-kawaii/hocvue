@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lession1</title>
+</head>
+<body>
+    <div id="app">
+        <h3>Chào bạn</h3>
+        <p>{{fullName}} bạn đã {{age}} tuổi</p>
+        <p>Age after change: {{onChangeAge()}}</p>
+    </div>
+    <script src="vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            //template: "<h1>Hello {{fullName}}</h1>",
+            data(){
+                return{
+                    fullName: 'Hiếu',
+                    age: 21
+                }
+            },
+            methods:{
+                onChangeAge(){
+                    this.age + 1;
+                    return this.age;
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

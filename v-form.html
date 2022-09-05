@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-form</title>
+    <script src="vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Danh sách các hãng xe</h1>
+        <!-- <ul v-for="car in cars">
+            <li>{{car}}</li>
+        </ul> -->
+        <table class="table">
+            <tr>
+                <th>STT</th>
+                <th>Tên hãng</th>
+            </tr>
+            <tr v-for="(value,index) in cars">
+                <td>{{index+1}}</td>
+                <th>{{value}}</th>
+            </tr>
+        </table>
+        <h3>Thông tin sinh viên</h3>
+        <!-- không lấy thuộc tính -->
+        <!-- <p v-for="s in student">{{s}}</p> -->
+        <p v-for="(value,name,index) in student">{{index}}.{{name}}.{{index}}</p>
+        <h2 class="mt-5">Thông tin khách hàng</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã khách hàng</th>
+                    <th>Họ tên</th>
+                    <th>SĐT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(value,index) in customer">
+                    <td>{{index+1}}</td>
+                    <td>{{value.customerId}}</td>
+                    <td>{{value.fullName}}</td>
+                    <td>{{value.phone}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    cars:["Xe 1","Xe 2","Xe 3"],
+                    student:{
+                        studentId: "123",
+                        studentName: "Hiếu",
+                        age: 21
+                    },
+                    customer:[
+                        {
+                            customerId: "01",
+                            fullName: "Hiếu pro",
+                            phone: "01"
+                        }, 
+                        {
+                            customerId: "02",
+                            fullName: "Hiếu pro2",
+                            phone: "02"
+                        }, 
+                        {
+                            customerId: "03",
+                            fullName: "Hiếu pro3",
+                            phone: "03"
+                        }  
+                    ]
+                }
+            }
+        })
+        app.mount('#app');
+    </script>
+</body>
+</html>
